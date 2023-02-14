@@ -1,0 +1,195 @@
+﻿@page "/tempAdd"
+@using MongoDB.Bson;
+@using PcPartPicker.Models
+@using PcPartPicker.IService
+@using PcPartPicker.Service
+@inject ICPUCoolerService CPUCoolerService 
+@inject ICaseService CaseService 
+@inject IImageService ImageService 
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<h3>TempAdd</h3>
+
+@*<SfGrid @ref=Grid
+        DataSource="@parts"
+        AllowSorting="true"
+        AllowPaging="true"
+        AllowReordering="true"
+        EnableHover="false"
+        AllowTextWrap="true"
+        Toolbar="Tools">
+    <GridPageSettings PageSize="20"></GridPageSettings>
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridTextWrapSettings WrapMode="WrapMode.Both"></GridTextWrapSettings>
+    <GridEvents OnToolbarClick="ToolbarClickHandler"
+                TValue="CaseModel">
+    </GridEvents>
+    <GridTemplates>
+        <EmptyRecordTemplate>
+            <br />
+        </EmptyRecordTemplate>
+    </GridTemplates>
+    <GridColumns>
+        <GridColumn Field=@nameof(CaseModel.Name)
+                    HeaderText="Name"
+                    Width="100"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Brand)
+                    HeaderText="Brand"
+                    Width="100"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Price)
+                    HeaderText="Price"
+                    Width="100"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Type)
+                    HeaderText="Fabric Type"
+                    Width="100"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+<SfDialog @ref="AddDiag"
+          IsModal="true"
+          Width="400px"
+          ShowCloseIcon="false"
+          Visible="true">
+    <DialogTemplates>
+        <Header>Add</Header>
+    </DialogTemplates>
+    <EditForm Model="@part"
+              OnValidSubmit="SubmitForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="inputsContainer">
+            <SfTextBox Enabled="true"
+                       Placeholder="Name"
+                       FloatLabelType="@FloatLabelType.Always"
+                       @bind-Value="part.Name">
+            </SfTextBox>
+            <SfTextBox Enabled="true"
+                       Placeholder="Brand"
+                       FloatLabelType="@FloatLabelType.Always"
+                       Multiline="true"
+                       @bind-Value="part.Brand">
+            </SfTextBox>
+            <SfNumericTextBox Enabled="true"
+                              Placeholder="Price"
+                              FloatLabelType="@FloatLabelType.Always"
+                              Min="0"
+                              @bind-Value="part.Price">
+            </SfNumericTextBox>
+            <SfTextBox Enabled="true"
+                       Placeholder="Type"
+                       FloatLabelType="@FloatLabelType.Always"
+                       Multiline="true"
+                       @bind-Value="part.Type">
+            </SfTextBox>
+        </div>
+        <div>
+            <div class="e-footer-content">
+                <div class="e-button container">
+                    <div class="flex-box">
+                        <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                        <button type="button" class="e-btn e-normal" @onclicck=CancelClick>Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</SfDialog>*@
+
+@*<SfUploader AllowedExtensions=".jpg, .png" @bind-SelectedFiles="SelectedFiles">
+    <UploaderEvents Success="@OnChunkSuccessHandler"></UploaderEvents>
+</SfUploader>*@
+
+<InputFile OnChange="OnInputFileChange" multiple />
+
+@if (images != null)
+{
+    @foreach (var item in images)
+    {
+        <img class="rounded m-1" src="@item.Url" />
+    }
+}
+
+
+@code {
+    public SfGrid<CaseModel> Grid;
+    public IEnumerable<CaseModel> parts;
+    public CaseModel part = new CaseModel();
+    public SfDialog AddDiag;
+    private List<ItemModel> Tools = new();
+
+    private IList<string> imageDataUrls = new List<string>();
+    private IEnumerable<ImageModel> images;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        parts = await CaseService.GetCases();
+        images = await ImageService.GetAllImages();
+
+        Tools.Add(new ItemModel() { Text = "Add", TooltipText = "Add", PrefixIcon = "e-add" });
+
+
+    }
+
+    private async Task OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        var format = "image/png";
+        var imageFile = e.File;
+        var resizedFile = await imageFile.RequestImageFileAsync(format, 200, 200);
+        var buffer = new byte[resizedFile.Size];
+        await resizedFile.OpenReadStream().ReadAsync(buffer);
+        var imageDataUrl = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+        imageDataUrls.Add(imageDataUrl);
+        ImageModel image = new ImageModel
+            {
+                Content = buffer,
+                filename = imageFile.Name
+            };
+        await ImageService.SaveImage(image);
+    }
+
+    //private void OnChunkSuccessHandler(SuccessEventArgs args)
+    //{
+    //    if (args.Operation == "upload" && args.StatusText == "File uploaded successfully")
+    //    {
+    //        var file = args.File;
+    //        var chunkSize = 256 * 1024;
+    //        var fileId = new ObjectId();
+    //        var chunks = Math.Ceiling(Convert.ToDouble(file.Size) / chunkSize);
+
+    //        var resizedFile = await file.RequestImageFileAsync(format, 200, 200);
+
+    //    }
+        
+        
+    //}
+
+    public async Task ToolbarClickHandler(ClickEventArgs args)
+    {
+        await AddDiag.ShowAsync();
+    }
+
+    public async Task SubmitForm()
+    {
+        await CaseService.CreateCase(part);
+        await JSRuntime.InvokeAsync<object>("location.reload", null);
+    }
+
+    public async void CancelClick()
+    {
+        await AddDiag.HideAsync();
+    }
+}

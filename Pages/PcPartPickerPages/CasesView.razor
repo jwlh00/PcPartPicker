@@ -1,0 +1,50 @@
+﻿@using PcPartPicker.Models;
+<h3>CPUs</h3>
+
+<SfGrid @ref=PartsGrid
+        DataSource="@Parts"
+        AllowSorting="true"
+        AllowReordering="true"
+        AllowFiltering="true"
+        AllowTextWrap="true"
+        Width="1350"
+        Height="500"
+        Toolbar="Tools">
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridTextWrapSettings WrapMode="WrapMode.Both"></GridTextWrapSettings>
+    <GridEvents OnToolbarClick="PartAdd"
+                RowSelected="RowSelection"
+                TValue="CaseModel">
+    </GridEvents>
+    <GridTemplates>
+        <EmptyRecordTemplate>
+            <br />
+        </EmptyRecordTemplate>
+    </GridTemplates>
+    <GridColumns>
+        <GridColumn Field=@nameof(CaseModel.Name)
+                    HeaderText="Name"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Brand)
+                    HeaderText="Brand"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Type)
+                    HeaderText="Type"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(CaseModel.Price)
+                    HeaderText="Price"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>

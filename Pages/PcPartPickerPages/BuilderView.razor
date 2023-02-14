@@ -1,0 +1,39 @@
+﻿@page "/builder"
+@using PcPartPicker.Models
+
+
+<h3>Builder</h3>
+
+<EditForm Model="@Build"
+        OnValidSubmit="SubmitForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="inputsContainer">
+        <SfTextBox Enabled="true"
+                Placeholder="Name"
+                FloatLabelType="@FloatLabelType.Always"
+                @bind-Value="Build.Name">
+        </SfTextBox>
+        <SfDropDownList DataSource="@users"
+                    TItem="UserModel"
+                    TValue="string"
+                    Enabled="true"
+                    Placeholder="Select a User"
+                    @bind-Value="@Build.UsernameId">
+            <DropDownListFieldSettings Value="Id" Text="UserName"></DropDownListFieldSettings>
+        </SfDropDownList>
+        <InputFile OnChange="SaveImg" multiple />
+    </div>
+    <div>
+        <div class="e-footer-content">
+            <div class="e-button container">
+                <div class="flex-box">
+                    <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                    <button type="button" class="e-btn e-normal" @onclicck=CancelClick>Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+

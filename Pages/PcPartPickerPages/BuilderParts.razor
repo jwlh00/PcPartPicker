@@ -1,0 +1,208 @@
+﻿@page "/builderParts/{buildID}"
+@using PcPartPicker.Models
+
+<h3>The build: @buildName created by @userName of gender: @userGender</h3>
+
+<SfGrid @ref=BuilderGrid
+        DataSource="@builder"
+        AllowReordering="true"
+        AllowTextWrap="true"
+        AllowSelection="true"
+        Toolbar="Tools">
+    <GridSelectionSettings Type="Syncfusion.Blazor.Grids.SelectionType.Single"
+                           Mode="Syncfusion.Blazor.Grids.SelectionMode.Cell">
+    </GridSelectionSettings>
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridTextWrapSettings WrapMode="WrapMode.Both"></GridTextWrapSettings>
+    <GridEvents OnToolbarClick="ToolbarClickHandler"
+                CellSelected="CellSelectedHandler"
+                TValue="BuildModel">
+    </GridEvents>
+    <GridColumns>
+        <GridColumn Field=@nameof(BuildModel.CPU)
+                    HeaderText="CPU"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    @if (part.CPU is not null)
+                    {
+                        string Name = part.CPU.Name;
+                        <div>@Name</div>
+                    }
+                    else
+                    {
+                        <div></div>
+                    }
+                }
+            </Template>
+        </GridColumn>
+
+        <GridColumn Field=@nameof(BuildModel.CPUCooler)
+                    HeaderText="CPU Cooler"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.CPUCooler is not null)
+                    {
+                        string Name = part.CPUCooler.Name;
+                        <div>@Name</div>
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.Motherboard)
+                    HeaderText="Motherboard"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.Motherboard is not null)
+                    {
+                        string Name = part.Motherboard.Name;
+                        <div>@Name</div>
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.Memory)
+                    HeaderText="Memory"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.Memory is not null)
+                    {
+                        foreach (var memory in part.Memory)
+                        {
+                            string Name = memory.Name;
+                            <div>@Name</div>
+                        }
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.Storage)
+                    HeaderText="Storage"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.Storage is not null)
+                    {
+                        foreach (var storage in part.Storage)
+                        {
+                            string Name = storage.Name;
+                            <div>@Name</div>
+                        }
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.GPU)
+                    HeaderText="GPU"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.GPU is not null)
+                    {
+                        foreach (var gpu in part.GPU)
+                        {
+                            string Name = gpu.Name;
+                            <div>@Name</div>
+                        }
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.Case)
+                    HeaderText="Case"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.Case is not null)
+                    {
+                        string Name = part.Case.Name;
+                        <div>@Name</div>
+                    }
+                }
+            </Template>
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildModel.PSU)
+                    HeaderText="PSU"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+            <Template>
+                @foreach (var part in builder)
+                {
+                    if (part.PSU is not null)
+                    {
+                        string Name = part.PSU.Name;
+                        <div>@Name</div>
+                    }
+                }
+            </Template>
+        </GridColumn>
+
+    </GridColumns>
+</SfGrid>
+
+
+<SfDialog @ref="PartViewerDiag"
+          IsModal="true"
+          Width="1400px"
+          ShowCloseIcon="true" 
+          Visible="false">
+    @if(part == "CPU")
+    {
+        <CPUsView OnPartAdd="CPUChosen"></CPUsView>
+    }
+    @if (part == "CPUCooler")
+    {
+        <CPUCoolersView OnPartAdd="CPUCoolerChosen"></CPUCoolersView>
+    }
+    @if (part == "Motherboard")
+    {
+        <MotherboardsView OnPartAdd="MotherboardChosen"></MotherboardsView>
+    }
+    @if (part == "Memory")
+    {
+        <MemoriesView OnPartAdd="MemoryChosen"></MemoriesView>
+    }
+    @if (part == "Storage")
+    {
+        <StoragesView OnPartAdd="StorageChosen"></StoragesView>
+    }
+    @if(part == "GPU")
+    {
+        <GPUsView OnPartAdd="GPUChosen"></GPUsView>
+    }
+    @if (part == "Case")
+    {
+        <CasesView OnPartAdd="CaseChosen"></CasesView>
+    }
+    @if(part == "PSU")
+    {
+        <PSUsView OnPartAdd="PSUChosen"></PSUsView>
+    }
+</SfDialog>
+
+

@@ -1,0 +1,75 @@
+﻿@page "/users"
+@using PcPartPicker.Models
+
+<h3>Users</h3>
+
+<SfButton Content="Bulk Add" OnClick="@OnBulkAdd"></SfButton>
+<SfButton Content="Bulk Delete" OnClick="@OnBulkDelete"></SfButton>
+<SfButton Content="Update To Active" OnClick="@OnActive"></SfButton>
+<SfButton Content="Update To Inactive" OnClick="@OnInactive"></SfButton>
+<label>GetAll</label>
+<SfSwitch @bind-Checked="isChecked" OffLabel="GetALl" OnLabel="GetActives" ValueChange="Change" TChecked="bool?"></SfSwitch>
+
+<SfGrid @ref=UsersGrid
+        DataSource="@users"
+        AllowSorting="true"
+        AllowPaging="true"
+        AllowReordering="true"
+        AllowFiltering="true"
+        Toolbar="Tools"
+        Height="600px">
+    <GridPageSettings PageSize="20"></GridPageSettings>
+    <GridEvents OnToolbarClick="ToolbarClickHandler"
+                RowSelected="RowSelectHandler"
+                TValue="UserModel">
+    </GridEvents>
+    <GridColumns>
+        <GridColumn Field=@nameof(UserModel.UserName)
+                    HeaderText="Name"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(UserModel.Gender)
+                    HeaderText="Gender"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(UserModel.Age)
+                    HeaderText="Age"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+<SfDialog @ref="MsgDiag"
+          IsModal="true"
+          Width="250px"
+          ShowCloseIcon="true"
+          Visible="false">
+    <DialogTemplates>
+        <Header>Select a User</Header>
+        <Content>@msg</Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Ok" IsPrimary="true" OnClick="@CancelDiagClick"></DialogButton>
+    </DialogButtons>
+</SfDialog>
+
+<SfDialog @ref="DeleteDiag"
+          IsModal="true"
+          Width="250px"
+          ShowCloseIcon="true"
+          Visible="false">
+    <DialogTemplates>
+        <Header>Deleting a User</Header>
+        <Content>Are you sure you want to delete this user?</Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Delete" IsPrimary="true" OnClick="@DeleteClick"></DialogButton>
+        <DialogButton Content="Cancel" OnClick="@CancelDiagClick"></DialogButton>
+    </DialogButtons>
+</SfDialog>

@@ -1,0 +1,57 @@
+﻿@using PcPartPicker.Models;
+<h3>CPUs</h3>
+
+<SfGrid @ref=PartsGrid
+        DataSource="@Parts"
+        AllowSorting="true"
+        AllowReordering="true"
+        AllowFiltering="true"
+        AllowTextWrap="true"
+        Width="1350"
+        Height="500"
+        Toolbar="Tools">
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridTextWrapSettings WrapMode="WrapMode.Both"></GridTextWrapSettings>
+    <GridEvents OnToolbarClick="PartAdd"
+                RowSelected="RowSelection"
+                TValue="MemoryModel">
+    </GridEvents>
+    <GridTemplates>
+        <EmptyRecordTemplate>
+            <br />
+        </EmptyRecordTemplate>
+    </GridTemplates>
+    <GridColumns>
+        <GridColumn Field=@nameof(MemoryModel.Name)
+                    HeaderText="Name"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(MemoryModel.Brand)
+                    HeaderText="Brand"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(MemoryModel.Speed)
+                    HeaderText="Speed"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(MemoryModel.CASLatency)
+                    HeaderText="Cas Latency"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+
+        <GridColumn Field=@nameof(MemoryModel.Price)
+                    HeaderText="Price"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>

@@ -1,0 +1,56 @@
+﻿@using PcPartPicker.Models;
+<h3>GPUsView</h3>
+
+<SfGrid @ref=PartsGrid
+        DataSource="@Parts"
+        AllowSorting="true"
+        AllowReordering="true"
+        AllowFiltering="true"
+        AllowTextWrap="true"
+        Width="1350"
+        Height="500"
+        Toolbar="Tools">
+    <GridFilterSettings Mode="FilterBarMode.Immediate" ImmediateModeDelay="1"></GridFilterSettings>
+    <GridTextWrapSettings WrapMode="WrapMode.Both"></GridTextWrapSettings>
+    <GridEvents OnToolbarClick="PartAdd"
+                RowSelected="RowSelection"
+                TValue="GPUModel">
+    </GridEvents>
+    <GridTemplates>
+        <EmptyRecordTemplate>
+            <br />
+        </EmptyRecordTemplate>
+    </GridTemplates>
+    <GridColumns>
+        <GridColumn Field=@nameof(GPUModel.Name)
+                    HeaderText="Name"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(GPUModel.Brand)
+                    HeaderText="Brand"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(GPUModel.Chipset)
+                    HeaderText="Chipset"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(GPUModel.Memory)
+                    HeaderText="Memory"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+        <GridColumn Field=@nameof(GPUModel.Price)
+                    HeaderText="Price"
+                    Width="150"
+                    Type="ColumnType.Number"
+                    TextAlign="TextAlign.Left">
+        </GridColumn>
+    </GridColumns>
+</SfGrid>

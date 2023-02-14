@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PcPartPicker
+build_property.RootNamespace = PcPartPicker
+build_property.ProjectDir = C:\Users\juuns\OneDrive\School\4th Year\1st Semester\Base de Datos 2\Proyects\Proyect1\PcPartPicker\PcPartPicker\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\juuns\OneDrive\School\4th Year\1st Semester\Base de Datos 2\Proyects\Proyect1\PcPartPicker\PcPartPicker
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/Charts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/BuilderParts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQnVpbGRlclBhcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/BuilderView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQnVpbGRlclZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/Builds.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQnVpbGRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/CasesView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQ2FzZXNWaWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/CPUCoolersView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQ1BVQ29vbGVyc1ZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/CPUsView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcQ1BVc1ZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/GPUsView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcR1BVc1ZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/MemoriesView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcTWVtb3JpZXNWaWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/MotherboardsView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcTW90aGVyYm9hcmRzVmlldy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/PSUsView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcUFNVc1ZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/StoragesView.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcU3RvcmFnZXNWaWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/TempAdd.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcVGVtcEFkZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/UserAddEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcVXNlckFkZEVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/PcPartPickerPages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGNQYXJ0UGlja2VyUGFnZXNcVXNlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-kjz7vin7ay
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-j68pfporq8
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/juuns/OneDrive/School/4th Year/1st Semester/Base de Datos 2/Proyects/Proyect1/PcPartPicker/PcPartPicker/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

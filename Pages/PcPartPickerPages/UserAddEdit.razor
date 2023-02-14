@@ -1,0 +1,46 @@
+﻿@page "/useraddedit/{userID}"
+@using PcPartPicker.Models
+
+<h3>UsersAddEdit</h3>
+
+<SfDialog @ref="AddEditDiag"
+          IsModal="true"
+          Width="800px"
+          ShowCloseIcon="false"
+          Visible="true">
+    <DialogTemplates>
+        <Header>@title</Header>
+    </DialogTemplates>
+    <DialogEvents Closed="@CloseDiag"></DialogEvents>
+    <EditForm Model="user"
+              OnSubmit="SubmitForm">
+        <div class="dropdownContainer">
+            <SfTextBox Enabled="true"
+                       Placeholder="Name"
+                       FloatLabelType="@FloatLabelType.Always"
+                       Multiline="true"
+                       @bind-Value="user.UserName">
+            </SfTextBox>
+            <SfTextBox Enabled="true"
+                       Placeholder="Gender"
+                       FloatLabelType="@FloatLabelType.Always"
+                       Multiline="true"
+                       @bind-Value="user.Gender">
+            </SfTextBox>
+            <SfNumericTextBox Enabled="true"
+                              Placeholder="Age"
+                              FloatLabelType="@FloatLabelType.Always"
+                              Min="1"
+                              @bind-Value="user.Age">
+            </SfNumericTextBox>
+            <div class="e-footer-content">
+                <div class="e-button container">
+                    <div class="flex-box">
+                        <button type="submit" class="e-btn e-normal e-primary">Save</button>
+                        <button type="button" class="e-btn e-normal" @onclick=CancelClick>Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</SfDialog>

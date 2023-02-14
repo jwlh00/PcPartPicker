@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\juuns\\OneDrive\\School\\4th Year\\1st Semester\\Base de Datos 2\\Proyects\\Proyect1\\PcPartPicker\\PcPartPicker\\PcPartPicker.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\juuns\\OneDrive\\School\\4th Year\\1st Semester\\Base de Datos 2\\Proyects\\Proyect1\\PcPartPicker\\PcPartPicker\\PcPartPicker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\juuns\\OneDrive\\School\\4th Year\\1st Semester\\Base de Datos 2\\Proyects\\Proyect1\\PcPartPicker\\PcPartPicker\\PcPartPicker.csproj",
+        "projectName": "PcPartPicker",
+        "projectPath": "C:\\Users\\juuns\\OneDrive\\School\\4th Year\\1st Semester\\Base de Datos 2\\Proyects\\Proyect1\\PcPartPicker\\PcPartPicker\\PcPartPicker.csproj",
+        "packagesPath": "C:\\Users\\juuns\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juuns\\OneDrive\\School\\4th Year\\1st Semester\\Base de Datos 2\\Proyects\\Proyect1\\PcPartPicker\\PcPartPicker\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\juuns\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Syncfusion\\Essential Studio\\Blazor\\20.3.0.47": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.19.0, )"
+            },
+            "MongoDB.Driver.GridFS": {
+              "target": "Package",
+              "version": "[2.19.0, )"
+            },
+            "Syncfusion.Blazor": {
+              "target": "Package",
+              "version": "[20.3.0.47, )"
+            },
+            "Syncfusion.Licensing": {
+              "target": "Package",
+              "version": "[20.3.0.47, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

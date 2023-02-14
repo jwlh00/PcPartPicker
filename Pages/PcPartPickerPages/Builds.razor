@@ -1,0 +1,80 @@
+﻿@page "/builds"
+@using PcPartPicker.Models
+
+
+<h3>Builds</h3>
+
+<SfGrid @ref=BuildsGrid
+        DataSource="@buildImg"
+        AllowSorting="true"
+        AllowPaging="true"
+        AllowReordering="true"
+        AllowFiltering="true"
+        Toolbar="Tools"
+        Height="600px">
+    <GridPageSettings PageSize="20"></GridPageSettings>
+    <GridEvents OnToolbarClick="ToolbarClickHandler"
+                RowSelected="RowSelectHandler"
+                OnRecordDoubleClick="OnRecordDoubleClickHandler"
+                TValue="BuildImageModel">
+    </GridEvents>
+    <GridColumns>
+        <GridColumn Field=@nameof(BuildImageModel.Name)
+                    HeaderText="Name"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+        </GridColumn>
+        <GridColumn Field=@nameof(BuildImageModel.ImgName)
+                    HeaderText="Image"
+                    Width="150"
+                    Type="ColumnType.String"
+                    TextAlign="TextAlign.Right">
+            <Template>
+                @{
+                    string Image = (context as BuildImageModel).Image.Url;
+                    <img class="rounded m-1" src="@Image" />
+                }
+
+            </Template>
+        </GridColumn>
+    </GridColumns>
+</SfGrid>
+
+@*@if (images != null)
+{
+    @foreach (var item in images)
+    {
+        <img class="rounded m-1" src="@item.Url" />
+    }
+}*@
+
+
+<SfDialog @ref="MsgDiag"
+          IsModal="true"
+          Width="250px"
+          ShowCloseIcon="true"
+          Visible="false">
+    <DialogTemplates>
+        <Header>Select a Build</Header>
+        <Content>You need to select a build first before trying to delete it</Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Ok" IsPrimary="true" OnClick="@CancelDiagClick"></DialogButton>
+    </DialogButtons>
+</SfDialog>
+
+<SfDialog @ref="DeleteDiag"
+          IsModal="true"
+          Width="250px"
+          ShowCloseIcon="true"
+          Visible="false">
+    <DialogTemplates>
+        <Header>Deleting a User</Header>
+        <Content>Are you sure you want to delete this user?</Content>
+    </DialogTemplates>
+    <DialogButtons>
+        <DialogButton Content="Delete" IsPrimary="true" OnClick="@DeleteClick"></DialogButton>
+        <DialogButton Content="Cancel" OnClick="@CancelDiagClick"></DialogButton>
+    </DialogButtons>
+</SfDialog>
